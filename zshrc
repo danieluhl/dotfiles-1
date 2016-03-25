@@ -52,9 +52,10 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 # User configuration
+PATH=$PATH:/usr/local/bin
 
 # Load boxen environment
-source /opt/boxen/env.sh
+#source /opt/boxen/env.sh
 
 # Load local environment
 [[ -f ~/.env ]] && export $(cat ~/.env)
@@ -63,23 +64,23 @@ source /opt/boxen/env.sh
 source $ZSH/oh-my-zsh.sh
 
 # Load tmuxifier: https://github.com/jimeh/tmuxifier
-export PATH="$HOME/.tmuxifier/bin:$PATH"
-export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
-eval "$(tmuxifier init -)"
+#export PATH="$HOME/.tmuxifier/bin:$PATH"
+#export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
+#eval "$(tmuxifier init -)"
 
 # Set empty terminal title for tmux
-printf '\033]2;\033\\'
+#printf '\033]2;\033\\'
 
 # Set editor to vim
-export EDITOR=vim
+#export EDITOR=vim
 
 # Load plug
-if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
-  curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
+#  curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+#      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-  vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa
-fi
+#   vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa
+# fi
 
 # Load z
 . `brew --prefix`/etc/profile.d/z.sh
@@ -89,3 +90,5 @@ fi
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+
