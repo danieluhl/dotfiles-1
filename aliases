@@ -8,7 +8,7 @@ alias rebuild!='rcdn ~/git/projects/dotfiles/dotfiles-1 && rcdn ~/git/projects/d
 alias gco='git checkout'
 alias gcoall='checkoutAll'
 alias gcob='git checkout -b'
-alias gcoa='git checkout -- .'
+alias gclear='git checkout -- . && git status'
 #logging
 alias glm='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --committer="duhl"'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
@@ -19,7 +19,7 @@ alias ga='git add -A'
 alias gca='git add -A && git commit -m'
 alias gcamend='git commit --amend'
 alias guc='git reset --soft HEAD~1'
-alias gremove='git reset HEAD'
+alias gremove='git reset HEAD && git status'
 # !!DANGER!! will lose changes
 alias grevertall='git reset --hard HEAD~1'
 # pushing and pulling
@@ -42,7 +42,7 @@ alias gcl='git clean -fdx'
 
 # branches
 alias gcb='git copy-branch-name'
-alias gdb='deleteBranch'
+alias gbd='git branch -D'
 alias gb='printBranches'
 alias gbm='git branch -m' # rename a branch
 alias createremote="createRemoteBranch"
@@ -60,20 +60,15 @@ alias gms='git merge --squash'
 # diffing
 alias gd='git diff'
 
-# function calls
-alias gma='got && gcomp && gop && gcomp && gor && gcomp'
 
-# non git
+# ********** non git ***********
 alias c='clear'
-
+alias lsa='ls -la'
 alias toucheverything='find . -exec touch {} \; &'
 
 # open in sublime
 alias subl='open -a Sublime\ Text '
 alias stt='subl .'
-alias dotfiles='subl ~/git/projects/dotfiles'
-alias sttpatch='subl ~/git/patch'
-alias sttall='subl ~/git/sync'
 alias pf='open -a "path finder" ./'
 
 # grunt call aliases
@@ -90,7 +85,8 @@ function changeDirectory()
 }
 
 # traces all dependencies to see if they're there
-function traceDependenciesByLeaf(){
+function traceDependenciesByLeaf()
+{
   eval "grunt deps --depth 1 --leaf $1"
 }
 
@@ -100,7 +96,8 @@ function printBranches()
 }
 
 # pushes the current branch to the same named remote
-function pushRemoteBranch(){
+function pushRemoteBranch()
+{
   currentBranch="$(git symbolic-ref HEAD 2>/dev/null)";
   currentBranch=${currentBranch##refs/heads/}
   eval "git push origin $currentBranch";

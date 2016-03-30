@@ -63,6 +63,9 @@ PATH=$PATH:/usr/local/bin
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# Load git completion
+source ~/.git-completion.bash
+
 # Load tmuxifier: https://github.com/jimeh/tmuxifier
 #export PATH="$HOME/.tmuxifier/bin:$PATH"
 #export TMUXIFIER_LAYOUT_PATH="$HOME/.tmux-layouts"
