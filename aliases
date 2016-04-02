@@ -59,6 +59,7 @@ alias gms='git merge --squash'
 
 # diffing
 alias gd='git diff'
+alias gds'git diff --staged'
 
 
 # ********** non git ***********
@@ -70,9 +71,6 @@ alias toucheverything='find . -exec touch {} \; &'
 alias subl='open -a Sublime\ Text '
 alias stt='subl .'
 alias pf='open -a "path finder" ./'
-
-# grunt call aliases
-alias reviews="grunt reviews --plain > ~/git/patch/reviews.txt"
 
 # call functions
 alias go="changeDirectory"

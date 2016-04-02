@@ -64,7 +64,7 @@ PATH=$PATH:/usr/local/bin
 source $ZSH/oh-my-zsh.sh
 
 # Load git completion
-source ~/.git-completion.bash
+source ~/.git-completion.sh
 
 # Load tmuxifier: https://github.com/jimeh/tmuxifier
 #export PATH="$HOME/.tmuxifier/bin:$PATH"
