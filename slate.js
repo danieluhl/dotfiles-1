@@ -48,6 +48,19 @@ var sh = {
       app: app
     });
   },
+  // toggle focus between two apps given a title regex
+  toggleFocus: function(regex, app1, app2) {
+    return sh.chain([
+      function(windowObject) {
+        var title = windowObject.title();
+        if (title !== undefined && title.match(regex)) {
+          windowObject.doOperation(sh.focusApp(app1));
+        } else {
+          windowObject.doOperation(sh.focusApp(app2));
+        }
+      }
+    ]);
+  },
   chain: function(ops) {
     return S.op('chain', {
       'operations': ops
@@ -109,6 +122,7 @@ var ops = {
     'direction': 'bottom-right'
   }),
 };
+// Chain operations
 var chainOps = {
   up: sh.chain([
     ops.topRightExt,
@@ -147,6 +161,21 @@ var layouts = {
       ]
     }
   },
+  split: {
+    'iTerm2': sh.hash([ops.topRightExt]),
+    'Google Chrome': sh.hash([ops.right]),
+    'Spotify': sh.hash([ops.right]),
+    'Slack': sh.hash([ops.left]),
+    'Microsoft Outlook': sh.hash([ops.right]),
+    'Evernote': sh.hash([ops.left]),
+    'Sublime Text': sh.hash([ops.left]),
+    '_after_': {
+      'operations': [
+        sh.focusApp('iTerm2'),
+        sh.focusApp('Sublime Text')
+      ]
+    }
+  },
   fullscreen: {
     'iTerm2': sh.hash([ops.rightExt]),
     'Google Chrome': sh.hash([ops.full]),
@@ -172,7 +201,8 @@ var layouts = {
 S.bnda({
   // layout bindings
   ']:ctrl;cmd;alt;shift': layouts.runner('default'),
-  '[:ctrl;cmd;alt;shift': layouts.runner('fullscreen'),
+  'backslash:ctrl;cmd;alt;shift': layouts.runner('fullscreen'),
+  '[:ctrl;cmd;alt;shift': layouts.runner('split'),
   // chain bindings
   'up:ctrl;cmd;alt;shift': chainOps.up,
   'up:ctrl;cmd;alt;shift': chainOps.up,
@@ -180,13 +210,12 @@ S.bnda({
   'left:ctrl;cmd;alt;shift': chainOps.left,
   'right:ctrl;cmd;alt;shift': chainOps.right,
   // regular bindings
-  '\:ctrl;cmd;alt;shift': ops.full,
+  'f:ctrl;cmd;alt;shift': ops.full,
   'z:ctrl;cmd;alt;shift': S.op('undo'),
   'r:ctrl;cmd;alt;shift': S.op('relaunch'),
   // focus bindings
-  's:ctrl;cmd;alt;shift': sh.focusApp('Sublime Text'),
-  'a:ctrl;cmd;alt;shift': sh.focusApp('iTerm2'),
-  'd:ctrl;cmd;alt;shift': sh.focusApp('Google Chrome'),
+  'a:ctrl;cmd;alt;shift': sh.toggleFocus(/^.*ALT00113.*$/i, 'Sublime Text', 'iTerm2'),
+  's:ctrl;cmd;alt;shift': sh.toggleFocus(/^.*~.*$/i, 'Google Chrome', 'Sublime Text'),
   'tab:ctrl;cmd;alt;shift': sh.focus('behind')
 });
 // Test Cases
