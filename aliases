@@ -3,7 +3,7 @@ alias plug-install='vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa'
 
 # git
 alias reload!='. ~/.zshrc && . ~/.zshrc.local'
-alias rebuild!='rcdn ~/git/projects/dotfiles/dotfiles-1 && rcdn ~/git/projects/dotfiles/dotfiles-local && rcup -vd ~/git/projects/dotfiles/dotfiles-1 && rcup -vd ~/git/projects/dotfiles/dotfiles-local'
+alias rebuild!='rcdn -vd ~/git/projects/dotfiles/dotfiles-1 && rcdn -vd ~/git/projects/dotfiles/dotfiles-local && rcup -vd ~/git/projects/dotfiles/dotfiles-1 && rcup -vd ~/git/projects/dotfiles/dotfiles-local'
 
 alias gco='git checkout'
 alias gcoall='checkoutAll'
@@ -17,6 +17,7 @@ alias glh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias gc='git commit -m'
 alias ga='git add -A'
 alias gca='git add -A && git commit -m'
+alias gcin='git add -A && git commit -n -m'
 alias gcamend='git commit --amend'
 alias guc='git reset --soft HEAD~1'
 alias gremove='git reset HEAD && git status'
