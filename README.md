@@ -11,7 +11,7 @@ brew install rcm
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # Clone dotfiles
-git clone https://github.com/blamattina/dotfiles.git
+git clone https://github.com/danieluhl/dotfiles-1.git
 
 # Link files
 rcup -d .
