@@ -27,7 +27,7 @@ alias gpush='git push origin HEAD'
 alias gp='git pull'
 alias gpr='git pull --rebase --prune'
 alias gf='git fetch --all'
-alias gpp='gp gpush'
+alias gpp='gpr && gpush'
 
 # ignore files
 alias gignore="git update-index --assume-unchanged"
