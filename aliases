@@ -108,7 +108,7 @@ function pullRemoteBranch()
 {
   currentBranch="$(git symbolic-ref HEAD 2>/dev/null)";
   currentBranch=${currentBranch##refs/heads/}
-  eval "git pull -u origin $currentBranch";
+  eval "git pull origin $currentBranch";
 }
 
 # create a remote branch and set upstream
