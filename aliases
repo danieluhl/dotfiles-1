@@ -25,7 +25,7 @@ alias grevertall='git reset --hard HEAD~1'
 # pushing and pulling
 alias gpush='git push origin HEAD'
 alias gp='git pull'
-alias gpr='git pull --rebase'
+alias gpr='git pull --rebase --prune'
 alias gf='git fetch --all'
 alias gpp='gp gpush'
 
@@ -49,7 +49,6 @@ alias gb='printBranches'
 alias gbm='git branch -m' # rename a branch
 alias createremote="createRemoteBranch"
 alias deleteremote="deleteRemoteBranch"
-alias pullremote="pullRemoteBranch"
 alias pushremote="pushRemoteBranch"
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 
@@ -101,14 +100,6 @@ function pushRemoteBranch()
   currentBranch="$(git symbolic-ref HEAD 2>/dev/null)";
   currentBranch=${currentBranch##refs/heads/}
   eval "git push origin $currentBranch";
-}
-
-# pulls a remote branch to the current one (and sets upstream)
-function pullRemoteBranch()
-{
-  currentBranch="$(git symbolic-ref HEAD 2>/dev/null)";
-  currentBranch=${currentBranch##refs/heads/}
-  eval "git pull origin $currentBranch";
 }
 
 # create a remote branch and set upstream
