@@ -6,7 +6,6 @@ alias reload!='. ~/.zshrc && . ~/.zshrc.local'
 alias rebuild!='rcdn -vd ~/git/projects/dotfiles/dotfiles-1 && rcdn -vd ~/git/projects/dotfiles/dotfiles-local && rcup -vd ~/git/projects/dotfiles/dotfiles-1 && rcup -vd ~/git/projects/dotfiles/dotfiles-local'
 
 alias gco='git checkout'
-alias gcoall='checkoutAll'
 alias gcob='git checkout -b'
 alias gclear='git checkout -- . && git status'
 #logging
@@ -36,7 +35,9 @@ alias gstopignore="git update-index --no-assume-unchanged"
 
 alias gco='git checkout'
 alias gcom='git checkout master'
+alias gm='git checkout master'
 alias gcomp='gcom && gpr'
+alias gmp='gm && gpr'
 
 # clean directory
 alias gcl='git clean -fdx'
@@ -60,8 +61,8 @@ alias gms='git merge --squash'
 
 # diffing
 alias gd='git diff'
-alias gds'git diff --staged'
-
+alias gds='git diff --staged'
+alias gdn="git diff --name-only master"
 
 # ********** non git ***********
 alias c='clear'

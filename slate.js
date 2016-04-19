@@ -22,6 +22,7 @@ var opsConfig = {
     'height': 'screenSizeY'
   }
 };
+
 // config for hashes (for layouts)
 var hashConfig = {
   'ignore-fail': true,
@@ -74,6 +75,11 @@ var sh = {
   layout: function(name, ops) {
     return sh.op('layout', {
       'name': S.lay(name, ops)
+    });
+  },
+  sequence: function(ops) {
+    return S.op('sequence', {
+      'operations': ops
     });
   }
 }
@@ -197,12 +203,46 @@ var layouts = {
     }
   }
 };
+var sequences = {
+  default: [
+    [sh.focusApp('Slack')],
+    [ops.left],
+    [sh.focusApp('Microsoft Outlook')],
+    [ops.rightExt],
+    [sh.focusApp('Spotify')],
+    [ops.right],
+    [sh.focusApp('Evernote')],
+    [ops.left],
+    [sh.focusApp('Google Chrome')],
+    [ops.rightExt],
+    [sh.focusApp('iTerm2')],
+    [ops.topRightExt],
+    [sh.focusApp('Sublime Text')],
+    [ops.leftExt]
+  ],
+  fullscreen: [
+    [sh.focusApp('Slack')],
+    [ops.full],
+    [sh.focusApp('Microsoft Outlook')],
+    [ops.full],
+    [sh.focusApp('Spotify')],
+    [ops.full],
+    [sh.focusApp('Evernote')],
+    [ops.full],
+    [sh.focusApp('Google Chrome')],
+    [ops.full],
+    [sh.focusApp('iTerm2')],
+    [ops.rightExt],
+    [sh.focusApp('Sublime Text')],
+    [ops.full]
+  ]
+};
+
 // Batch bind everything. Less typing.
 S.bnda({
   // layout bindings
-  ']:ctrl;cmd;alt;shift': layouts.runner('default'),
-  'backslash:ctrl;cmd;alt;shift': layouts.runner('fullscreen'),
-  '[:ctrl;cmd;alt;shift': layouts.runner('split'),
+  ']:ctrl;cmd;alt;shift': sh.sequence(sequences.default),
+  '[:ctrl;cmd;alt;shift': sh.sequence(sequences.fullscreen),
   // chain bindings
   'up:ctrl;cmd;alt;shift': chainOps.up,
   'up:ctrl;cmd;alt;shift': chainOps.up,
@@ -214,9 +254,12 @@ S.bnda({
   'z:ctrl;cmd;alt;shift': S.op('undo'),
   'r:ctrl;cmd;alt;shift': S.op('relaunch'),
   // focus bindings
-  'a:ctrl;cmd;alt;shift': sh.toggleFocus(/^.*ALT00113.*$/i, 'Sublime Text', 'iTerm2'),
-  's:ctrl;cmd;alt;shift': sh.toggleFocus(/^.*~.*$/i, 'Google Chrome', 'Sublime Text'),
-  'tab:ctrl;cmd;alt;shift': sh.focus('behind')
+  '1:ctrl;cmd;alt;shift': sh.focusApp('Sublime Text'),
+  '2:ctrl;cmd;alt;shift': sh.focusApp('iTerm2'),
+  's:ctrl;cmd;alt;shift': sh.focusApp('Slack'),
+  'o:ctrl;cmd;alt;shift': sh.focusApp('Microsoft Outlook'),
+  'c:ctrl;cmd;alt;shift': sh.focusApp('Google Chrome'),
+  'e:ctrl;cmd;alt;shift': sh.focusApp('Evernote')
 });
 // Test Cases
 S.src('.slate.test', true);
