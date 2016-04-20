@@ -3,7 +3,7 @@ alias plug-install='vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa'
 
 # git
 alias reload!='. ~/.zshrc && . ~/.zshrc.local'
-alias rebuild!='rcdn -vd ~/git/dotfiles/dotfiles-1 && rcdn -vd ~/git/dotfiles/dotfiles-1/dotfiles-local && rcup -vd ~/git/dotfiles/dotfiles-1 && rcup -vd ~/git/dotfiles/dotfiles-1/dotfiles-local'
+alias rebuild!='rcdn -vd ~/git/dotfiles/dotfiles-1 && rcdn -vd ~/git/dotfiles/dotfiles-local && rcup -vd ~/git/dotfiles/dotfiles-1 && rcup -vd ~/git/dotfiles/dotfiles-local'
 
 alias gco='git checkout'
 alias gcob='git checkout -b'
@@ -134,7 +134,7 @@ compdef g=git
 
 # simple server
 alias serve='python -m SimpleHTTPServer 8000'
-alias localhost='open -a "Google Chrome" "localhost:8000"'
+alias localhost='open -a "Google Chrome" "http://localhost:8000"'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
