@@ -7,6 +7,9 @@
 brew tap thoughtbot/formulae
 brew install rcm
 
+# to enable z functionality
+brew install z
+
 # Clone oh-my-zsh
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
@@ -35,3 +38,11 @@ Supported Local Files:
 - `~/.vimrc.local`
 - `~/.vimrc.bundles.local`
 - `~/.zshrc.local`
+
+# Other typical installs
+- slate
+- alfred
+- seil
+- karabiner
+- screenflow
+- bartender
