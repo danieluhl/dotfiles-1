@@ -132,5 +132,9 @@ g() {
 }
 compdef g=git
 
+# reveal-ck aliases
+alias rg='reveal-ck generate'
+alias rs='reveal-ck serve'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
