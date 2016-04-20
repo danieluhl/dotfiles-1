@@ -136,5 +136,9 @@ compdef g=git
 alias rg='reveal-ck generate'
 alias rs='reveal-ck serve'
 
+# simple server
+alias serve='python -m SimpleHTTPServer 8000'
+alias localhost='open -a "Google Chrome" "localhost:8000"'
+
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
