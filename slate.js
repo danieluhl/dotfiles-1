@@ -95,9 +95,13 @@ var ops = {
     'width': 'screenSizeX/2',
     'x': 'screenOriginX+(screenSizeX/2)'
   }),
-  rightExt: sh.move({
+  rightThird: sh.move({
     'width': 'screenSizeX*2/3',
     'x': 'screenOriginX+(screenSizeX/3)'
+  }),
+  rightFourth: sh.move({
+    'width': 'screenSizeX*3/4',
+    'x': 'screenOriginX+(screenSizeX/4)'
   }),
   top: sh.move({
     'height': 'screenSizeY/2'
@@ -117,7 +121,7 @@ var ops = {
     'direction': 'top-right',
     'height': 'screenSizeY/2'
   }),
-  topRightExt: sh.corner({
+  topRightThird: sh.corner({
     'direction': 'top-right',
     'height': 'screenSizeY*2/3'
   }),
@@ -131,7 +135,7 @@ var ops = {
 // Chain operations
 var chainOps = {
   up: sh.chain([
-    ops.topRightExt,
+    ops.topRightThird,
     ops.topRight,
     ops.topLeftExt,
     ops.topLeft,
@@ -147,17 +151,18 @@ var chainOps = {
     ops.left
   ]),
   right: sh.chain([
-    ops.rightExt,
+    ops.rightThird,
+    ops.rightFourth,
     ops.right
   ])
 };
 var layouts = {
   default: {
-    'iTerm2': sh.hash([ops.topRightExt]),
-    'Google Chrome': sh.hash([ops.rightExt]),
+    'iTerm2': sh.hash([ops.topRightThird]),
+    'Google Chrome': sh.hash([ops.rightThird]),
     'Spotify': sh.hash([ops.right]),
     'Slack': sh.hash([ops.left]),
-    'Microsoft Outlook': sh.hash([ops.rightExt]),
+    'Microsoft Outlook': sh.hash([ops.rightThird]),
     'Evernote': sh.hash([ops.left]),
     'Sublime Text': sh.hash([ops.leftExt]),
     '_after_': {
@@ -168,7 +173,7 @@ var layouts = {
     }
   },
   split: {
-    'iTerm2': sh.hash([ops.topRightExt]),
+    'iTerm2': sh.hash([ops.topRightThird]),
     'Google Chrome': sh.hash([ops.right]),
     'Spotify': sh.hash([ops.right]),
     'Slack': sh.hash([ops.left]),
@@ -183,7 +188,7 @@ var layouts = {
     }
   },
   fullscreen: {
-    'iTerm2': sh.hash([ops.rightExt]),
+    'iTerm2': sh.hash([ops.rightThird]),
     'Google Chrome': sh.hash([ops.full]),
     'Spotify': sh.hash([ops.full]),
     'Slack': sh.hash([ops.full]),
@@ -208,15 +213,15 @@ var sequences = {
     [sh.focusApp('Slack')],
     [ops.left],
     [sh.focusApp('Microsoft Outlook')],
-    [ops.rightExt],
+    [ops.rightThird],
     [sh.focusApp('Spotify')],
     [ops.right],
     [sh.focusApp('Evernote')],
     [ops.left],
     [sh.focusApp('Google Chrome')],
-    [ops.rightExt],
+    [ops.rightThird],
     [sh.focusApp('iTerm2')],
-    [ops.topRightExt],
+    [ops.topRightThird],
     [sh.focusApp('Sublime Text')],
     [ops.leftExt]
   ],
@@ -232,7 +237,7 @@ var sequences = {
     [sh.focusApp('Google Chrome')],
     [ops.full],
     [sh.focusApp('iTerm2')],
-    [ops.rightExt],
+    [ops.rightThird],
     [sh.focusApp('Sublime Text')],
     [ops.full]
   ]
