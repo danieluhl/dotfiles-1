@@ -159,7 +159,7 @@ var chainOps = {
 var layouts = {
   default: {
     'iTerm2': sh.hash([ops.topRightThird]),
-    'Google Chrome': sh.hash([ops.rightThird]),
+    'Google Chrome': sh.hash([ops.rightFourth]),
     'Spotify': sh.hash([ops.right]),
     'Slack': sh.hash([ops.left]),
     'Microsoft Outlook': sh.hash([ops.rightThird]),
@@ -219,7 +219,7 @@ var sequences = {
     [sh.focusApp('Evernote')],
     [ops.left],
     [sh.focusApp('Google Chrome')],
-    [ops.rightThird],
+    [ops.rightFourth],
     [sh.focusApp('iTerm2')],
     [ops.topRightThird],
     [sh.focusApp('Sublime Text')],

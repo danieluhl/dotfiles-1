@@ -53,6 +53,10 @@ plugins=(git)
 
 # User configuration
 PATH=$PATH:/usr/local/bin
+PATH=$PATH:/usr/local/share/npm/bin
+PATH=$PATH:/usr/local/lib/node_modules
+
+function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
 
 # Load boxen environment
 #source /opt/boxen/env.sh
