@@ -103,6 +103,18 @@ var ops = {
     'width': 'screenSizeX*3/4',
     'x': 'screenOriginX+(screenSizeX/4)'
   }),
+  middleLarge: sh.move({
+    'width': 'screenSizeX*3/4',
+    'height': 'screenSizeY*5/6',
+    'x': 'screenOriginX+(screenSizeX/8)',
+    'y': 'screenOriginY+(screenSizeY/12)'
+  }),
+  middleSmall: sh.move({
+    'width': 'screenSizeX*2/3',
+    'height': 'screenSizeY*5/6',
+    'x': 'screenOriginX+(screenSizeX/6)',
+    'y': 'screenOriginY+(screenSizeY/12)'
+  }),
   top: sh.move({
     'height': 'screenSizeY/2'
   }),
@@ -154,6 +166,10 @@ var chainOps = {
     ops.rightThird,
     ops.rightFourth,
     ops.right
+  ]),
+  middle: sh.chain([
+    ops.middleLarge,
+    ops.middleSmall
   ])
 };
 var layouts = {
@@ -223,7 +239,9 @@ var sequences = {
     [sh.focusApp('iTerm2')],
     [ops.topRightThird],
     [sh.focusApp('Sublime Text')],
-    [ops.leftExt]
+    [ops.leftExt],
+    [sh.focusApp('Commander One')],
+    [ops.rightThird]
   ],
   fullscreen: [
     [sh.focusApp('Slack')],
@@ -239,6 +257,8 @@ var sequences = {
     [sh.focusApp('iTerm2')],
     [ops.rightThird],
     [sh.focusApp('Sublime Text')],
+    [ops.full],
+    [sh.focusApp('Commander One')],
     [ops.full]
   ]
 };
@@ -254,6 +274,7 @@ S.bnda({
   'down:ctrl;cmd;alt;shift': chainOps.down,
   'left:ctrl;cmd;alt;shift': chainOps.left,
   'right:ctrl;cmd;alt;shift': chainOps.right,
+  'm:ctrl;cmd;alt;shift': chainOps.middle,
   // regular bindings
   'f:ctrl;cmd;alt;shift': ops.full,
   'z:ctrl;cmd;alt;shift': S.op('undo'),

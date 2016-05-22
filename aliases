@@ -50,7 +50,7 @@ alias gbm='git branch -m' # rename a branch
 alias createremote="createRemoteBranch"
 alias deleteremote="deleteRemoteBranch"
 alias pushremote="pushRemoteBranch"
-alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+alias gs='git status' # upgrade your git if -sb breaks for you. it's fun.
 
 alias gremote='git remote set-url origin git@github.com/danieluhl/' # last param should be the github repo name.git - git@github.com/danieluhl/my_repo.git
 
