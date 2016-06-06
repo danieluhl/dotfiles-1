@@ -240,8 +240,8 @@ var sequences = {
     [ops.topRightThird],
     [sh.focusApp('Sublime Text')],
     [ops.leftExt],
-    [sh.focusApp('Commander One')],
-    [ops.rightThird]
+    // [sh.focusApp('Commander One')],
+    // [ops.rightThird]
   ],
   fullscreen: [
     [sh.focusApp('Slack')],
@@ -258,8 +258,8 @@ var sequences = {
     [ops.rightThird],
     [sh.focusApp('Sublime Text')],
     [ops.full],
-    [sh.focusApp('Commander One')],
-    [ops.full]
+    // [sh.focusApp('Commander One')],
+    // [ops.full]
   ]
 };
 
