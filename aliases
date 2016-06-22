@@ -1,6 +1,8 @@
 # install vim plugins
 alias plug-install='vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa'
 
+alias dotfiles='subl ~/git/dotfiles'
+
 # git
 alias reload!='. ~/.zshrc && . ~/.zshrc.local'
 alias rebuild!='rcdn -vd ~/git/dotfiles/dotfiles-1 && rcdn -vd ~/git/dotfiles/dotfiles-local && rcup -vd ~/git/dotfiles/dotfiles-1 && rcup -vd ~/git/dotfiles/dotfiles-local'
@@ -64,7 +66,6 @@ alias gds='git diff --staged'
 alias gdn="git diff --name-only master"
 
 # ********** non git ***********
-alias c='clear'
 alias lsa='ls -la'
 alias toucheverything='find . -exec touch {} \; &'
 
