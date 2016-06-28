@@ -5,6 +5,7 @@ __git_complete pullr _git_pull
 __git_complete gpush _git_push
 # checkout
 __git_complete gco _git_checkout
+__git_complete gcoball _git_checkout
 __git_complete gcoall _git_checkout
 # branch
 __git_complete gb _git_branch
