@@ -180,6 +180,7 @@ var layouts = {
     'Slack': sh.hash([ops.left]),
     'Microsoft Outlook': sh.hash([ops.rightThird]),
     'Evernote': sh.hash([ops.left]),
+    'iA Writer': sh.hash([ops.left]),
     'Sublime Text': sh.hash([ops.leftExt]),
     '_after_': {
       'operations': [
@@ -195,6 +196,7 @@ var layouts = {
     'Slack': sh.hash([ops.left]),
     'Microsoft Outlook': sh.hash([ops.right]),
     'Evernote': sh.hash([ops.left]),
+    'iA Writer': sh.hash([ops.left]),
     'Sublime Text': sh.hash([ops.left]),
     '_after_': {
       'operations': [
@@ -210,6 +212,7 @@ var layouts = {
     'Slack': sh.hash([ops.full]),
     'Microsoft Outlook': sh.hash([ops.full]),
     'Evernote': sh.hash([ops.full]),
+    'iA Writer': sh.hash([ops.full]),
     'Sublime Text': sh.hash([ops.full]),
     '_after_': {
       'operations': [
@@ -280,12 +283,12 @@ S.bnda({
   'z:ctrl;cmd;alt;shift': S.op('undo'),
   'r:ctrl;cmd;alt;shift': S.op('relaunch'),
   // focus bindings
-  '1:ctrl;cmd;alt;shift': sh.focusApp('Sublime Text'),
-  '2:ctrl;cmd;alt;shift': sh.focusApp('iTerm2'),
-  's:ctrl;cmd;alt;shift': sh.focusApp('Slack'),
-  'o:ctrl;cmd;alt;shift': sh.focusApp('Microsoft Outlook'),
-  'c:ctrl;cmd;alt;shift': sh.focusApp('Google Chrome'),
-  'e:ctrl;cmd;alt;shift': sh.focusApp('Evernote')
+  // '1:ctrl;cmd;alt;shift': sh.focusApp('Sublime Text'),
+  // '2:ctrl;cmd;alt;shift': sh.focusApp('iTerm2'),
+  // 's:ctrl;cmd;alt;shift': sh.focusApp('Slack'),
+  // 'o:ctrl;cmd;alt;shift': sh.focusApp('Microsoft Outlook'),
+  // 'c:ctrl;cmd;alt;shift': sh.focusApp('Google Chrome'),
+  // 'e:ctrl;cmd;alt;shift': sh.focusApp('Evernote')
 });
 // Test Cases
 S.src('.slate.test', true);
