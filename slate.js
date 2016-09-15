@@ -174,14 +174,14 @@ var chainOps = {
 };
 var layouts = {
   default: {
-    'iTerm2': sh.hash([ops.topRightThird]),
     'Google Chrome': sh.hash([ops.rightFourth]),
     'Spotify': sh.hash([ops.right]),
+    'iA Writer': sh.hash([ops.left]),
     'Slack': sh.hash([ops.left]),
     'Microsoft Outlook': sh.hash([ops.rightThird]),
-    'Evernote': sh.hash([ops.left]),
-    'iA Writer': sh.hash([ops.left]),
+    // 'Evernote': sh.hash([ops.left]),
     'Sublime Text': sh.hash([ops.leftExt]),
+    'iTerm2': sh.hash([ops.topRightThird]),
     '_after_': {
       'operations': [
         sh.focusApp('iTerm2'),
@@ -190,13 +190,13 @@ var layouts = {
     }
   },
   split: {
-    'iTerm2': sh.hash([ops.topRightThird]),
     'Google Chrome': sh.hash([ops.right]),
     'Spotify': sh.hash([ops.right]),
+    'iA Writer': sh.hash([ops.left]),
     'Slack': sh.hash([ops.left]),
     'Microsoft Outlook': sh.hash([ops.right]),
-    'Evernote': sh.hash([ops.left]),
-    'iA Writer': sh.hash([ops.left]),
+    // 'Evernote': sh.hash([ops.left]),
+    'iTerm2': sh.hash([ops.topRightThird]),
     'Sublime Text': sh.hash([ops.left]),
     '_after_': {
       'operations': [
@@ -206,13 +206,13 @@ var layouts = {
     }
   },
   fullscreen: {
-    'iTerm2': sh.hash([ops.rightThird]),
     'Google Chrome': sh.hash([ops.full]),
     'Spotify': sh.hash([ops.full]),
+    'iA Writer': sh.hash([ops.full]),
     'Slack': sh.hash([ops.full]),
     'Microsoft Outlook': sh.hash([ops.full]),
-    'Evernote': sh.hash([ops.full]),
-    'iA Writer': sh.hash([ops.full]),
+    // 'Evernote': sh.hash([ops.full]),
+    'iTerm2': sh.hash([ops.rightThird]),
     'Sublime Text': sh.hash([ops.full]),
     '_after_': {
       'operations': [
@@ -235,7 +235,7 @@ var sequences = {
     [ops.rightThird],
     [sh.focusApp('Spotify')],
     [ops.right],
-    [sh.focusApp('Evernote')],
+    // [sh.focusApp('Evernote')],
     [ops.left],
     [sh.focusApp('iTerm2')],
     [ops.rightThird],
@@ -253,7 +253,7 @@ var sequences = {
     [ops.full],
     [sh.focusApp('Spotify')],
     [ops.full],
-    [sh.focusApp('Evernote')],
+    // [sh.focusApp('Evernote')],
     [ops.full],
     [sh.focusApp('iTerm2')],
     [ops.full],
@@ -288,7 +288,7 @@ S.bnda({
   // 's:ctrl;cmd;alt;shift': sh.focusApp('Slack'),
   // 'o:ctrl;cmd;alt;shift': sh.focusApp('Microsoft Outlook'),
   // 'c:ctrl;cmd;alt;shift': sh.focusApp('Google Chrome'),
-  // 'e:ctrl;cmd;alt;shift': sh.focusApp('Evernote')
+  'e:ctrl;cmd;alt;shift': sh.focusApp('Evernote')
 });
 // Test Cases
 S.src('.slate.test', true);
