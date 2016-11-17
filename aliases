@@ -1,3 +1,4 @@
+
 # install vim plugins
 alias plug-install='vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa'
 
@@ -19,15 +20,17 @@ alias glh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias ga='git add -A'
 alias gca='git add -A && git commit -m'
 alias gcin='git add -A && git commit -n -m'
-alias gcamend='git commit --amend'
+alias gcc='git add -A && git commit -n -m "work in progress"'
+alias gcamend='git add -A && git commit --amend'
 alias guc='git reset --soft HEAD~1'
+alias grm='git reset HEAD'
 alias gremove='git reset HEAD && git status'
 # !!DANGER!! will lose changes
 alias grevertall='git reset --hard HEAD~1'
 # pushing and pulling
 alias gpush='git push origin HEAD'
 alias gp='git pull'
-alias gpr='git pull --rebase --prune'
+alias gpr='git pull --rebase'
 alias gf='git fetch --all'
 alias gpp='gpr && gpush'
 
@@ -59,8 +62,9 @@ alias gms='git merge --squash'
 
 # diffing
 alias gd='git diff --color | diff-so-fancy'
-alias gds='git diff --staged'
-alias gdn="git diff --name-only master"
+alias gds='git diff --staged --color | diff-so-fancy'
+alias gdn="git diff --name-only master --color | diff-so-fancy"
+alias gdm="git diff master --color | diff-so-fancy"
 
 # ********** non git ***********
 alias lsa='ls -la'
@@ -70,6 +74,9 @@ alias toucheverything='find . -exec touch {} \; &'
 alias subl='open -a Sublime\ Text '
 alias stt='subl .'
 alias pf='open -a "path finder" ./'
+
+# open in atom
+alias att='open -a atom .'
 
 # call functions
 alias go="changeDirectory"
@@ -145,5 +152,3 @@ alias localhost='open -a "Google Chrome" "http://localhost:8000"'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
-
-

@@ -14,7 +14,7 @@
 [pretty]
   colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/duhl/.gitignore_global
   autocrlf = input
   editor = "sublime -w"
 [commit]
