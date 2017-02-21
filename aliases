@@ -20,8 +20,8 @@ alias glh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias ga='git add -A'
 alias gca='git add -A && git commit -m'
 alias gcin='git add -A && git commit -n -m'
-alias gcc='git add -A && git commit -n -m "work in progress"'
 alias gcamend='git add -A && git commit --amend'
+alias gcc='git checkout -- .'
 alias guc='git reset --soft HEAD~1'
 alias grm='git reset HEAD'
 alias gremove='git reset HEAD && git status'
@@ -52,6 +52,8 @@ alias gbm='git branch -m' # rename a branch
 alias createremote="createRemoteBranch"
 alias deleteremote="deleteRemoteBranch"
 alias pushremote="pushRemoteBranch"
+alias pullremote="pullRemoteBranch"
+alias diffremote="diffRemoteBranch"
 alias gs='git status' # upgrade your git if -sb breaks for you. it's fun.
 
 alias gremote='git remote set-url origin git@github.com/danieluhl/' # last param should be the github repo name.git - git@github.com/danieluhl/my_repo.git
@@ -59,6 +61,8 @@ alias gremote='git remote set-url origin git@github.com/danieluhl/' # last param
 alias gm='git merge'
 alias gmm='git merge master --no-edit'
 alias gms='git merge --squash'
+# git take theirs (follow with file path to take theirs on)
+alias gtt='git checkout --theirs'
 
 # diffing
 alias gd='git diff --color | diff-so-fancy'
@@ -81,6 +85,9 @@ alias att='open -a atom .'
 # call functions
 alias go="changeDirectory"
 alias deps="traceDependenciesByLeaf"
+
+# run browser-sync
+alias bs="browser-sync start --directory --server"
 
 # functions
 function changeDirectory()
@@ -105,6 +112,21 @@ function pushRemoteBranch()
   currentBranch="$(git symbolic-ref HEAD 2>/dev/null)";
   currentBranch=${currentBranch##refs/heads/}
   eval "git push origin $currentBranch";
+}
+
+function pullRemoteBranch()
+{
+  currentBranch="$(git symbolic-ref HEAD 2>/dev/null)";
+  currentBranch=${currentBranch##refs/heads/}
+  eval "git pull origin $currentBranch";
+}
+
+function diffRemoteBranch()
+{
+  currentBranch="$(git symbolic-ref HEAD 2>/dev/null)";
+  currentBranch=${currentBranch##refs/heads/}
+  repo=${PWD##*/}
+  eval "git diff --full-index origin/$currentBranch" | tee ~/git/patch/$repo/$currentBranch.patch
 }
 
 # create a remote branch and set upstream
