@@ -30,3 +30,7 @@
   email = duhl@wayfair.com
 [merge]
   tool = opendiff
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE

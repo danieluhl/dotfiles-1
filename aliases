@@ -2,12 +2,16 @@
 # install vim plugins
 alias plug-install='vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa'
 
-alias dotfiles='subl ~/git/dotfiles'
+alias dotfiles='code ~/git/dotfiles'
 alias dot='dotfiles'
+
+alias pubExt='rm -rf $HOME/.vscode/extensions/vs-code-extensions && cp -R /Users/duhl/git/vs-code-extensions $HOME/.vscode/extensions'
 
 # git
 alias reload!='. ~/.zshrc && . ~/.zshrc.local'
 alias rebuild!='rcdn -vd ~/git/dotfiles/dotfiles-1 && rcdn -vd ~/git/dotfiles/dotfiles-local && rcup -vd ~/git/dotfiles/dotfiles-1 && rcup -vd ~/git/dotfiles/dotfiles-local'
+
+alias gwho='git shortlog -n -s --no-merges'
 
 alias gc='git checkout'
 alias gcb='git checkout -b'
@@ -27,12 +31,18 @@ alias grm='git reset HEAD'
 alias gremove='git reset HEAD && git status'
 # !!DANGER!! will lose changes
 alias grevertall='git reset --hard HEAD~1'
+alias gun='git reset --hard HEAD'
+alias gkilleverything='git reset --hard origin/master'
 # pushing and pulling
 alias gpush='git push origin HEAD'
+alias gpa='git push --no-verify'
 alias gp='git pull'
 alias gpr='git pull --rebase'
 alias gf='git fetch --all'
 alias gpp='gpr && gpush'
+alias lint='node_modules/.bin/eslint --rulesdir grunt_tasks/eslint/rules'
+
+alias gclean='git remote prune origin && git gc && git clean -dfx && git stash clear'
 
 # ignore files
 alias gignore="git update-index --assume-unchanged"
@@ -54,7 +64,8 @@ alias deleteremote="deleteRemoteBranch"
 alias pushremote="pushRemoteBranch"
 alias pullremote="pullRemoteBranch"
 alias diffremote="diffRemoteBranch"
-alias gs='git status' # upgrade your git if -sb breaks for you. it's fun.
+alias gs="git status" # upgrade your git if -sb breaks for you. it's fun.
+alias seediff="git difftool master"
 
 alias gremote='git remote set-url origin git@github.com/danieluhl/' # last param should be the github repo name.git - git@github.com/danieluhl/my_repo.git
 
@@ -63,11 +74,13 @@ alias gmm='git merge master --no-edit'
 alias gms='git merge --squash'
 # git take theirs (follow with file path to take theirs on)
 alias gtt='git checkout --theirs'
+alias gmtheirs='git merge --strategy-option theirs'
+alias gmours='git merge --strategy-option ours'
 
 # diffing
 alias gd='git diff --color | diff-so-fancy'
 alias gds='git diff --staged --color | diff-so-fancy'
-alias gdn="git diff --name-only master --color | diff-so-fancy"
+alias gdn="git diff --name-only master --color | diff-so-fancy | tee ~/git/patch/names.patch"
 alias gdm="git diff master --color | diff-so-fancy"
 
 # ********** non git ***********
@@ -81,6 +94,15 @@ alias pf='open -a "path finder" ./'
 
 # open in atom
 alias att='open -a atom .'
+
+# open in vs code
+alias vtt='code ./'
+
+# npm install from global registry
+alias npmi=npminstall
+function npminstall() {
+ eval "npm install $1 --registry https://registry.npmjs.org/"
+}
 
 # call functions
 alias go="changeDirectory"
@@ -174,3 +196,7 @@ alias localhost='open -a "Google Chrome" "http://localhost:8000"'
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
+
+
+# opam (ocaml package manager) init
+alias opamConfig='eval `opam config env`'

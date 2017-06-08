@@ -56,9 +56,9 @@ PATH=$PATH:/usr/local/bin
 PATH=$PATH:/usr/local/share/npm/bin
 PATH=$PATH:/usr/local/lib/node_modules
 PATH=$PATH:/Users/duhl/git/sync/resources/node_modules/grunt-sass/node_modules/node-sass/bin
+PATH=$PATH:/usr/local/php5/bin
 
-
-
+source /Users/duhl/git/wf/wf_complete_zsh
 
 function npm-do { (PATH=$(npm bin):$PATH; eval $@;) }
 
@@ -105,3 +105,16 @@ source ~/.git-completion.sh
 # add to .zshrc
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+# config opam (ocaml package manager)
+. /Users/duhl/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export PATH="/Users/duhl/bin:$PATH"
+
+export PATH="/Users/duhl/bin:$PATH"
+
+export PATH="/Users/duhl/bin:$PATH"
+
+export PATH="/Users/duhl/bin:$PATH"
+
+export PATH="/Users/duhl/bin:$PATH"

@@ -1,1 +1,48 @@
+# Node + Grunt stuff
+.grunt/
+#bin
+junit/
+nbproject/
+_SpecRunner.html
+.treecache
+.scss_map
 .vscode/
+.history/
+st4/includes/js/config.js
+st4/includes/icon-sprites
+Thumbs.db
+npm-debug.log
+
+# yui to amd conversion helper
+yui_custom_modules.json
+
+
+# ReviewBoard stuff
+.reviewboardrc
+.reviewcache
+.reviewcache.js
+
+# IDE stuff
+.idea
+
+# Use "!" to allow individual node modules as you need to update or commit them
+node_modules/tungstenjs
+node_modules/.cache
+
+# Misc
+.gitignore
+sftp-config.json
+.realsync
+.DS_Store
+
+# Cylance Files
+*.cyl
+
+# VIM users
+*.swp
+
+# unit test output
+st4/includes/js/tests/runner/testbuild.js
+st4/includes/js/tests/coverage/
+st4/includes/js/tests/runner/test_exceptions.json
+st4/includes/js/tests/runner/reporter_config.js
