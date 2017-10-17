@@ -5,7 +5,15 @@ alias plug-install='vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa'
 alias dotfiles='code ~/git/dotfiles'
 alias dot='dotfiles'
 
+alias notes='insiders ~/Dropbox/notes/work'
+alias c='code .'
+
 alias pubExt='rm -rf $HOME/.vscode/extensions/vs-code-extensions && cp -R /Users/duhl/git/vs-code-extensions $HOME/.vscode/extensions'
+
+# deploy
+alias gri='git branch --set-upstream-to=origin/master && git rebase -i'
+alias gprm='git pull --rebase origin master'
+
 
 # git
 alias reload!='. ~/.zshrc && . ~/.zshrc.local'
@@ -15,6 +23,10 @@ alias gwho='git shortlog -n -s --no-merges'
 
 alias gc='git checkout'
 alias gcb='git checkout -b'
+alias gcbm=checkoutFromMaster
+function checkoutFromMaster() {
+ gcb $1 origin/master;
+}
 alias gclear='git checkout -- . && git status'
 #logging
 alias glm='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --committer="duhl"'
@@ -24,20 +36,29 @@ alias glh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias ga='git add -A'
 alias gca='git add -A && git commit -m'
 alias gcin='git add -A && git commit -n -m'
+alias gci='git add -A && git commit -n'
 alias gcamend='git add -A && git commit --amend'
 alias gcc='git checkout -- .'
 alias guc='git reset --soft HEAD~1'
 alias grm='git reset HEAD'
 alias gremove='git reset HEAD && git status'
+# get latest master on local master without checking out master
+alias gfm='git fetch origin master:master'
+alias gmm='git merge master --no-edit'
+alias gpm='gfm && gmm'
+alias gpmm='git prune && rm .git/gc.log && gpm'
 # !!DANGER!! will lose changes
 alias grevertall='git reset --hard HEAD~1'
 alias gun='git reset --hard HEAD'
 alias gkilleverything='git reset --hard origin/master'
+alias grevert='git checkout origin/master '
 # pushing and pulling
 alias gpush='git push origin HEAD'
 alias gpa='git push --no-verify'
-alias gp='git pull'
+alias gp='rm -f .git/gc.log && git pull'
 alias gpr='git pull --rebase'
+# rebase is saying, "instead of building my features on that old commit, build them all on this new commit"
+alias grm='gf && git rebase origin/master'
 alias gf='git fetch --all'
 alias gpp='gpr && gpush'
 alias lint='node_modules/.bin/eslint --rulesdir grunt_tasks/eslint/rules'
@@ -70,7 +91,6 @@ alias seediff="git difftool master"
 alias gremote='git remote set-url origin git@github.com/danieluhl/' # last param should be the github repo name.git - git@github.com/danieluhl/my_repo.git
 
 alias gm='git merge'
-alias gmm='git merge master --no-edit'
 alias gms='git merge --squash'
 # git take theirs (follow with file path to take theirs on)
 alias gtt='git checkout --theirs'
@@ -128,12 +148,13 @@ function printBranches()
   eval 'for k in `git branch | sed s/^..//`; do echo -e `git log -1 --pretty=format:"%Cgreen%ci %Cred%cr%Creset" $k --`\\t"$k";done | sort'
 }
 
+
 # pushes the current branch to the same named remote
 function pushRemoteBranch()
 {
   currentBranch="$(git symbolic-ref HEAD 2>/dev/null)";
   currentBranch=${currentBranch##refs/heads/}
-  eval "git push origin $currentBranch";
+  eval "git push -f origin $currentBranch";
 }
 
 function pullRemoteBranch()

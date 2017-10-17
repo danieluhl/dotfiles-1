@@ -1,0 +1,61 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "boundary",
+    "editor.minimap.enabled": false,
+    "editor.cursorStyle": "block",
+    "editor.formatOnType": true,
+    "editor.snippetSuggestions": "top",
+    "editor.renderIndentGuides": true,
+    "editor.wordWrap": "off",
+    "editor.formatOnSave": false,
+    "editor.cursorBlinking": "solid",
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "window.zoomLevel": 1,
+    "workbench.activityBar.visible": false,
+    "files.trimTrailingWhitespace": true,
+    "emmet.syntaxProfiles": {
+      "javascript": "jsx"
+    },
+    "files.exclude": {
+      "**/.git": true,
+      "**/amd_dist/**": true,
+      "**/.DS_Store": true,
+      "**/node_modules/**": true,
+      "**/yui_modules": true,
+      "st4/admin/**": true,
+      "st4/countdown/**": true,
+      "st4/extranet/**": true,
+      "st4/svg/**": true,
+      "**/.history/**": true
+    },
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/node_modules/**": true,
+      "**/amd_dist/**": true,
+      "**/yui_modules/**": true,
+      "/yui_modules/**": true,
+      "st4/admin/**": true,
+      "st4/countdown/**": true,
+      "st4/extranet/**": true,
+      "st4/svg/**": true
+    },
+    "window.title": "${activeEditorLong}",
+    "window.newWindowDimensions": "inherit",
+    "workbench.sideBar.location": "left",
+    "eslint.autoFixOnSave": true,
+    "eslint.options": {
+      "rulePaths": [
+        "/Users/duhl/git/sync/resources/grunt_tasks/eslint/rules"
+      ]
+    },
+    "prettier.singleQuote": true,
+    "php.validate.executablePath": "/usr/local/bin/php",
+    "files.eol": "\n",
+    "phpcs.standard": "/Users/duhl/git/sync/php/non-web/standardscheck/CSNStores",
+    "prettier.printWidth": 80,
+    "phpcs.enable": false,
+    "workbench.startupEditor": "none"
+  }

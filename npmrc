@@ -1,4 +1,5 @@
-registry = https://dev.artifactory.service.bo1.csnzoo.com/artifactory/api/npm/npm
-_auth = ZHVobDpBUDY2SDEyWXhLaDdKcjQ0TnBkNHI4aThhS1Y=
-email = duhl@wayfair.com
-always-auth = true
+#registry=https://dev.artifactory.service.bo1.csnzoo.com/artifactory/api/npm/npm
+#_auth="ZHVobDpBUDY2SDEyWXhLaDdKcjQ0TnBkNHI4aThhS1Y="
+#email=duhl@wayfair.com
+#always-auth=true
+#package-lock=false

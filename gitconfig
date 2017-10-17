@@ -16,7 +16,7 @@
 [core]
   excludesfile = /Users/duhl/.gitignore_global
   autocrlf = input
-  editor = "sublime -w"
+  editor = "code"
 [commit]
   template = ~/.gitmessage
 [fetch]
