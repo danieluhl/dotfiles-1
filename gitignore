@@ -73,9 +73,6 @@ sftp-config.json
 .realsync
 .DS_Store
 
-# Cylance Files
-*.cyl
-
 # VIM users
 *.swp
 
